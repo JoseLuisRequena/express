@@ -1,0 +1,111 @@
+[{
+    "name": "Haze Whisson",
+    "id": 1,
+    "puesto": "Research and Development",
+    "email": "hwhisson0@mozilla.org",
+    "phone": "475-334-2492",
+    "startDate": "26-07-2022",
+    "Description": "Fully-configurable real-time productivity",
+    "state": true,
+    "password": "dq5fTSGhmvym",
+    "photo": "https://robohash.org/inenimquo.png?size=150x150&set=set1"
+  }, {
+    "name": "Cloris Carress",
+    "id": 2,
+    "puesto": "Legal",
+    "email": "ccarress1@businessinsider.com",
+    "phone": "166-633-1469",
+    "startDate": "03-08-2022",
+    "Description": "Cross-platform zero defect moratorium",
+    "state": true,
+    "password": "FX2M7GXpgp",
+    "photo": "https://robohash.org/molestiaehicpraesentium.png?size=150x150&set=set1"
+  }, {
+    "name": "Land Monsey",
+    "id": 3,
+    "puesto": "Accounting",
+    "email": "lmonsey2@state.tx.us",
+    "phone": "346-808-6903",
+    "startDate": "08-08-2022",
+    "Description": "Switchable bifurcated contingency",
+    "state": false,
+    "password": "MjGzRHQziz1",
+    "photo": "https://robohash.org/ducimusautemquas.png?size=150x150&set=set1"
+  }, {
+    "name": "Kingsley Flooks",
+    "id":4,
+    "puesto": "Support",
+    "email": "kflooks3@netscape.com",
+    "phone": "885-187-4021",
+    "startDate": "01-08-2022",
+    "Description": "Horizontal interactive task-force",
+    "state": false,
+    "password": "WUDIG9FN",
+    "photo": "https://robohash.org/quifaciliseos.png?size=150x150&set=set1"
+  }, {
+    "name": "Aubine Giffard",
+    "id": 5,
+    "puesto": "Services",
+    "email": "agiffard4@vistaprint.com",
+    "phone": "915-381-9364",
+    "startDate": "20-08-2022",
+    "Description": "Reverse-engineered 24/7 conglomeration",
+    "state": false,
+    "password": "ReghwXynGsy",
+    "photo": "https://robohash.org/eosquisquammagnam.png?size=150x150&set=set1"
+  }, {
+    "name": "Kittie Pollendine",
+    "id": 6,
+    "puesto": "Human Resources",
+    "email": "kpollendine5@edublogs.org",
+    "phone": "199-886-2182",
+    "startDate": "23-07-2022",
+    "Description": "Down-sized upward-trending model",
+    "state": true,
+    "password": "IrIvhlnc8PH",
+    "photo": "https://robohash.org/quisquampariaturet.png?size=150x150&set=set1"
+  }, {
+    "name": "Margarethe Huntingford",
+    "id": 7,
+    "puesto": "Marketing",
+    "email": "mhuntingford6@ifeng.com",
+    "phone": "181-786-1558",
+    "startDate": "21-08-2022",
+    "Description": "Customer-focused zero tolerance challenge",
+    "state": true,
+    "password": "9s9pXQJ",
+    "photo": "https://robohash.org/asperioresaperiamlaborum.png?size=150x150&set=set1"
+  }, {
+    "name": "Trumann Alenov",
+    "id": 8,
+    "puesto": "Research and Development",
+    "email": "talenov7@vimeo.com",
+    "phone": "456-143-5082",
+    "startDate": "03-08-2022",
+    "Description": "Programmable optimal encoding",
+    "state": false,
+    "password": "wnKJMB",
+    "photo": "https://robohash.org/itaquearchitectodignissimos.png?size=150x150&set=set1"
+  }, {
+    "name": "Giordano Riep",
+    "id": 9,
+    "puesto": "Sales",
+    "email": "griep8@cdbaby.com",
+    "phone": "885-290-6636",
+    "startDate": "22-08-2022",
+    "Description": "Visionary systematic hierarchy",
+    "state": true,
+    "password": "QXLNAEPVh",
+    "photo": "https://robohash.org/fugitnonsimilique.png?size=150x150&set=set1"
+  }, {
+    "name": "Corene Grzelczyk",
+    "id": 10,
+    "puesto": "Services",
+    "email": "cgrzelczyk9@irs.gov",
+    "phone": "103-604-3643",
+    "startDate": "17-08-2022",
+    "Description": "Cloned client-driven software",
+    "state": false,
+    "password": "SS1Xwg",
+    "photo": "https://robohash.org/deseruntitaquedebitis.png?size=150x150&set=set1"
+  }]
