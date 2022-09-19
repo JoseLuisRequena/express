@@ -1,3 +1,6 @@
+//npm install passport-local
+//npm install passport-jwt
+
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -10,6 +13,8 @@ const bookingRouter = require('./routes/bookings.routes');
 const roomsRouter = require('./routes/rooms.routes');
 const contactsRouter = require('./routes/contacts.routes');
 
+const passport = require('passport');
+require('./auth/auth');
 const app = express();
 
 // view engine setup
