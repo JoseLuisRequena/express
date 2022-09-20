@@ -5,7 +5,7 @@ const controller = {};
 //controller.index = function(req, res, next) {
 //    res.render('index', { title: 'Jose Luis' });
 //}
-controller.login = (
+controller.login = function(req, res, next) {(
     async (req, res, next) => {
         passport.authenticate(
             'login',
@@ -33,6 +33,6 @@ controller.login = (
             }
         )(req, res, next);
     }
-);
+)};
   
 module.exports = controller
