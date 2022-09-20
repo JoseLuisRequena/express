@@ -10,15 +10,15 @@ controller.getContact = function(req, res) {
     res.json(contact);
 };
 controller.newContact = function(req, res) {
-    contacts = [...contacts, req.body];
+    //contacts = [...contacts, req.body];
     res.json({ success: true, message: "New contact added" });
 };
 controller.updateContact = function(req, res) {
-    contacts.forEach((contact, index) => {
-      if (contact.id === req.params.id) {
-        return (contacts[index] = req.body);
-      }
-    });
+    //contacts.forEach((contact, index) => {
+    //  if (contact.id === req.params.id) {
+    //    return (contacts[index] = req.body);
+    //  }
+    //});
     res.json({ success: true, message: "Contact updated" });
 };
 controller.deleteContact = function(req, res) {
