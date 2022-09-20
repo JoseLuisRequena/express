@@ -10,15 +10,9 @@ controller.getUser = function(req, res) {
     res.json(user);
 };
 controller.newUser = function(req, res) {
-    users = [...users, req.body];
     res.json({ success: true, message: "New user added" });
 };
 controller.updateUser = function(req, res) {
-    users.forEach((user, index) => {
-      if (user.id === req.params.id) {
-        return (users[index] = req.body);
-      }
-    });
     res.json({ success: true, message: "User updated" });
 };
 controller.deleteUser = function(req, res) {
