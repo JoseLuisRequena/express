@@ -5,15 +5,13 @@ const controller = {};
 //controller.index = function(req, res, next) {
 //    res.render('index', { title: 'Jose Luis' });
 //}
-controller.login = function(req, res, next) {(
-    async (req, res, next) => {
+controller.login = async (req, res, next) => {
         passport.authenticate(
             'login',
             async (err, user, info) => {
                 try {
                     if (err || !user) {
                         const error = new Error('An error occurred.');
-                        
                         return next(error);
                     }
                   
@@ -21,8 +19,9 @@ controller.login = function(req, res, next) {(
                         async (error) => {
                             if (error) return next(error);
                             
-                            const body = { _id: user._id, email: user.email };
-                            const token = jwt.sign({ user: body }, 'TOP_SECRET');
+                            const body = {username: user.username };
+                            const expiresIn = 1000 * 60 * 60 * 24 * 30;
+                            const token = jwt.sign({ user: body }, 'TOP_SECRET', { expiresIn: expiresIn });
                             
                             return res.json({ token });
                         }
@@ -32,7 +31,6 @@ controller.login = function(req, res, next) {(
                 }
             }
         )(req, res, next);
-    }
-)};
+};
   
-module.exports = controller
+module.exports = controller;

@@ -1,5 +1,26 @@
+const  global = require('./env');
 //npm install passport-local
 //npm install passport-jwt
+//npm i mysql
+
+//conectar base de MySQL
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+  host: 'localhost',
+  database: 'miranda_db',
+  user: global.db_user,
+  password: global.db_password
+});
+
+connection.connect(function(error){
+  if(error){
+    throw error;
+  }else{
+    console.log('conexion exitosa');
+  }
+});
+
+connection.end();
 
 const createError = require('http-errors');
 const express = require('express');
@@ -7,15 +28,15 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+require('./auth/auth');
+//const passport = require('passport');
+const app = express();
+
 const loginRouter = require('./routes/login.routes');
 const usersRouter = require('./routes/users.routes');
 const bookingRouter = require('./routes/bookings.routes');
 const roomsRouter = require('./routes/rooms.routes');
 const contactsRouter = require('./routes/contacts.routes');
-
-const passport = require('passport');
-require('./auth/auth');
-const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
