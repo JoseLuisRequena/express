@@ -1,3 +1,6 @@
+CREATE DATABASE miranda_db;
+USE miranda_db
+
 CREATE TABLE rooms(
     room_id INT AUTO_INCREMENT PRIMARY KEY,
     room_number SMALLINT NOT NULL,

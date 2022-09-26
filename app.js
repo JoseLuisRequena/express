@@ -1,26 +1,7 @@
-const  global = require('./env');
 //npm install passport-local
 //npm install passport-jwt
 //npm i mysql
-
-//conectar base de MySQL
-const mysql = require('mysql');
-const connection = mysql.createConnection({
-  host: 'localhost',
-  database: 'miranda_db',
-  user: global.db_user,
-  password: global.db_password
-});
-
-connection.connect(function(error){
-  if(error){
-    throw error;
-  }else{
-    console.log('conexion exitosa');
-  }
-});
-
-connection.end();
+//npm install --save-dev @faker-js/faker
 
 const createError = require('http-errors');
 const express = require('express');
