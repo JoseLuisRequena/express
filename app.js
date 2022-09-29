@@ -2,6 +2,7 @@
 //npm install passport-jwt
 //npm i mysql
 //npm install --save-dev @faker-js/faker
+//npm install mongoose --save
 
 const createError = require('http-errors');
 const express = require('express');
