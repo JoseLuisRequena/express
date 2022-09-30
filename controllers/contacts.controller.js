@@ -1,24 +1,40 @@
-const contacts = require('../jsons/Contacts.json');
+const { Contact } = require('../schema');
+require('../connectionDB');
 
 const controller = {};
 
-controller.getContacts = function(req, res) {
-    res.json(contacts);
+controller.getContacts = async function(req, res) {
+    const result = await Contact.find();
+    res.json(result);
 };
-controller.getContact = function(req, res) {
-    const contact = contacts.find( contact => String(contact.id) === req.params.id);
-    res.json(contact);
+
+controller.getContact = async function(req, res) {
+    const contactId = req.params.id;
+    const result = await Contact.findOne({_id: contactId});
+    res.json(result);
 };
-controller.newContact = function(req, res) {
-    res.json({ success: true, message: "New contact added" });
+
+controller.newContact = async function(req, res) {
+    const dataNewContact = req.body;
+    const newContact = new Contact(dataNewContact);
+    const result = await newContact.save();
+    res.json({ result, message: "New contact added" });
 };
-controller.updateContact = function(req, res) {
-    res.json({ success: true, message: "Contact updated" });
+
+controller.updateContact = async function(req, res) {
+    const contactId = req.params.id;
+    const result = await Contact.findOneAndUpdate(
+        {_id: contactId},
+        req.body,
+        {new: true}
+        );
+    res.json({ result, message: "Contact updated" });
 };
-controller.deleteContact = function(req, res) {
-    const contactId = contacts.find(contact => String(contact.id) === req.params.id);
-    contacts.splice(contactId, 1);
-    res.json({ success: true, message: "Contact deleted" });
+ 
+controller.deleteContact = async function(req, res) {
+    const contactId = req.params.id;
+    const result = await Contact.deleteOne({ _id: contactId });
+    res.json({ result, message: "Contact deleted" });
 };
 
 module.exports = controller;
