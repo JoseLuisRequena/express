@@ -5,7 +5,7 @@ const controller = {};
 
 controller.getRooms = async function(req, res) {
     const result = await Room.find()
-    res.json(rooms);
+    res.json(result);
 };
 controller.getRoom = async function(req, res) {
     const roomId = req.params.id;
