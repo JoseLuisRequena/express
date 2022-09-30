@@ -11,4 +11,5 @@ router.route('/:id')
     .delete(controller.deleteBooking)
     .put(controller.updateBooking);
     
+    
 module.exports = router;
