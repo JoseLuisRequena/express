@@ -1,24 +1,36 @@
-const rooms = require('../jsons/Rooms.json')
+const { Room } = require('../schema');
+require('../connectionDB');
 
 const controller = {};
 
-controller.getRooms = function(req, res) {
+controller.getRooms = async function(req, res) {
+    const result = await Room.find()
     res.json(rooms);
 };
-controller.getRoom = function(req, res) {
-    const room = rooms.find( room => String(room.room) === req.params.room);
-    res.json(room);
+controller.getRoom = async function(req, res) {
+    const roomId = req.params.id;
+    const result = await Room.findOne({_id: roomId});
+    res.json(result);
 };
-controller.newRoom = function(req, res) {
-    res.json({ success: true, message: "New room added" });
+controller.newRoom = async function(req, res) {
+    const dataNewRoom = req.body;
+    const newRoom = new Room(dataNewRoom);
+    const result = await newRoom.save();
+    res.json({ result, message: "New room added" });
 };
-controller.updateRoom = function(req, res) {
-    res.json({ success: true, message: "Room updated" });
+controller.updateRoom = async function(req, res) {
+    const roomId = req.params.id;
+    const result = await Room.findOneAndUpdate(
+        {_id: roomId},
+        req.body,
+        {new: true}
+    )
+    res.json({ result, message: "Room updated" });
 };
-controller.deleteRoom = function(req, res) {
-    const roomNum = rooms.find(room => String(room.room) === req.params.room);
-    rooms.splice(roomNum, 1);
-    res.json({ success: true, message: "Room deleted" });
+controller.deleteRoom = async function(req, res) {
+    const roomId = req.params.id;
+    const result = Room.deleteOne({_id: roomId})
+    res.json({ result, message: "Room deleted" });
 };
 
 module.exports = controller;
