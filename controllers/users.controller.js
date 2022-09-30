@@ -1,24 +1,40 @@
-const users = require('../jsons/Users.json')
+const { User } = require('../schema');
+require('../connectionDB');
 
 const controller = {}
 
-controller.getUsers = function(req, res) {
-    res.json(users);
+controller.getUsers = async function(req, res) {
+    const result = await User.find();
+    res.json(result);
 };
-controller.getUser = function(req, res) {
-    const user = users.find( user => String(user.id) === req.params.id);
-    res.json(user);
+
+controller.getUser = async function(req, res) {
+    const userId = req.params.id
+    const result = await User.findOne({_id: userId});
+    res.json(result);
 };
-controller.newUser = function(req, res) {
-    res.json({ success: true, message: "New user added" });
+
+controller.newUser = async function(req, res) {
+    const dataNewUser = req.body;
+    const newUser = new User(dataNewUser);
+    const result = await newUser.save();
+    res.json({ result, message: "New user added" });
 };
-controller.updateUser = function(req, res) {
-    res.json({ success: true, message: "User updated" });
+
+controller.updateUser = async function(req, res) {
+    const userId = req.params.id;
+    const result = await User.findOneAndUpdate(
+        { _id: userId },
+        req.body,
+        {new: true}
+    );
+    res.json({ result, message: "User updated" });
 };
-controller.deleteUser = function(req, res) {
-    const userId = users.find(user => String(user.id) === req.params.id);
-    users.splice(userId, 1);
-    res.json({ success: true, message: "User deleted" });
+
+controller.deleteUser = async function(req, res) {
+    const userId = req.params.id;
+    const result = await User.deleteOne({ _id: userId })
+    res.json({ result, message: "User deleted" });
 };
 
 module.exports = controller;

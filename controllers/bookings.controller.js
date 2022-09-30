@@ -1,25 +1,40 @@
-const bookings = require('../jsons/Bookings.json');
+const { Booking } = require('../schema');
+require('../connectionDB');
 
 const controller = {};
 
-controller.getBookings = function(req, res) {
-    res.json(bookings);
+controller.getBookings = async function(req, res) {
+    const result = await Booking.find()
+    res.json(result);
 };
-controller.getBooking = function(req, res) {
-    const booking = bookings.find( booking => String(booking.id) === req.params.id);
-    res.json(booking);
+
+controller.getBooking = async function(req, res) {
+    const bookingId = req.params.id;
+    const result = await Booking.findOne({_id: bookingId})
+    res.json(result);
 };
+
 controller.newBooking = function(req, res) {
-    res.json({ success: true, message: "New booking added" });
+    const dataNewBooking = req.body;
+    const newBooking = new Booking(dataNewBooking);
+    const result = newBooking.save();
+    res.json({ result, message: "New booking added" });
 };
-controller.updateBooking = function(req, res) {
-    res.json({ success: true, message: "Booking updated" });
+
+controller.updateBooking = async function(req, res) {
+    const bookingId = req.params.id;
+    const result = await Booking.findOneAndUpdate(
+        {_id: bookingId},
+        req.body,
+        {new: true}
+        );
+    res.json({ result, message: "Booking updated" });
 };
-controller.deleteBooking = function(req, res) {
-    const bookingId = bookings.find(booking => String(booking.id) === req.params.id);
-    bookings.splice(bookingId, 1);
-    res.json({ success: true, message: "Booking deleted" });
+
+controller.deleteBooking = async function(req, res) {
+    const bookingId = req.params.id;
+    const result = await Booking.deleteOne({ _id: bookingId })
+    res.json({ result, message: "Booking deleted" });
 };
   
-
 module.exports = controller;
