@@ -5,6 +5,7 @@ const controller = require('../controllers/contacts.controller')
 router.route('/')
     .get(controller.getContacts)
     .post(controller.newContact);
+    
 router.route('/:id')
     .get(controller.getContact)
     .delete(controller.deleteContact)
