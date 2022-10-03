@@ -1,5 +1,6 @@
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
+const secretKey = require("../env");
 const controller = {};
 
 //controller.index = function(req, res, next) {
@@ -21,7 +22,7 @@ controller.login = async (req, res, next) => {
                             
                             const body = {username: user.username };
                             const expiresIn = 1000 * 60 * 60 * 24 * 30;
-                            const token = jwt.sign({ user: body }, 'TOP_SECRET', { expiresIn: expiresIn });
+                            const token = jwt.sign({ user: body }, secretKey, { expiresIn: expiresIn });
                             
                             return res.json({ token });
                         }
