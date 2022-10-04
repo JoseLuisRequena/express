@@ -1,5 +1,5 @@
-const { Contact } = require('../schema');
-require('../connectionDB');
+const { Contact } = require('../db/schema');
+require('../db/connectionDB');
 
 const controller = {};
 

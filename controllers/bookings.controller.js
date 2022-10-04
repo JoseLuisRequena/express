@@ -1,5 +1,5 @@
-const { Booking } = require('../schema');
-require('../connectionDB');
+const { Booking } = require('../db/schema');
+require('../db/connectionDB');
 
 const controller = {};
 

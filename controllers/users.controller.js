@@ -1,5 +1,5 @@
-const { User } = require('../schema');
-require('../connectionDB');
+const { User } = require('../db/schema');
+require('../db/connectionDB');
 
 const controller = {}
 
