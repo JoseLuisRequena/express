@@ -1,5 +1,5 @@
-const { Room } = require('../schema');
-require('../connectionDB');
+const { Room } = require('../db/schema');
+require('../db/connectionDB');
 
 const controller = {};
 
