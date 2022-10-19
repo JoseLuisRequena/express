@@ -19,6 +19,7 @@ passport.use(
       passwordField: 'password',
     },
     async (username, password, done) => {
+      console.log(username, 'hola auth')
       try {
         if (username === user.username && password === user.password) {
           return done(null, user, { message: 'Logged in Successfully' });
