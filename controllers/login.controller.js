@@ -10,6 +10,7 @@ controller.login = async (req, res, next) => {
         passport.authenticate(
             'login',
             async (err, user, info) => {
+                console.log(user, 'hola controllerLogin');
                 try {
                     if (err || !user) {
                         const error = new Error('An error occurred.');

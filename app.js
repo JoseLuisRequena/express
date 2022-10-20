@@ -1,14 +1,10 @@
-//npm install passport-local
-//npm install passport-jwt
-//npm i mysql
-//npm install --save-dev @faker-js/faker
-//npm install mongoose --save
-
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const cors = require('cors')
+const { ORIGINS } = require('./env');
 
 require('./auth/auth');
 //const passport = require('passport');
@@ -30,6 +26,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+const corsOptions = {
+  origin: ORIGINS,
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+app.use(cors(corsOptions));
 app.use('/login', loginRouter);
 app.use('/bookings', bookingRouter);
 app.use('/contacts', contactsRouter);
