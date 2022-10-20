@@ -1,16 +1,12 @@
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
-const secretKey = require("../env");
+const { secretKey } = require("../env");
 const controller = {};
 
-//controller.index = function(req, res, next) {
-//    res.render('index', { title: 'Jose Luis' });
-//}
 controller.login = async (req, res, next) => {
         passport.authenticate(
             'login',
             async (err, user, info) => {
-                console.log(user, 'hola controllerLogin');
                 try {
                     if (err || !user) {
                         const error = new Error('An error occurred.');
